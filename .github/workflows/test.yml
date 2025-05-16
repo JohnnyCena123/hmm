@@ -19,6 +19,7 @@ jobs:
         --installPath C:\BuildTools ^
         --add Microsoft.VisualStudio.Workload.VCTools ^
         --includeRecommended
+        IF %ERRORLEVEL% EQU 3010 EXIT 0
       shell: cmd
     - name: 
       uses: actions/upload-artifact@v4
