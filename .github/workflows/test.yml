@@ -1,0 +1,16 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - "**"
+
+jobs:
+  main-job:
+    runs-on: windows-latest
+    steps:
+      - name: m
+        uses: actions/upload-artifact@
+        with:
+          path: C:\Program Files (x86)\Microsoft Visual Studio
