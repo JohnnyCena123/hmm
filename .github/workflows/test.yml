@@ -15,10 +15,11 @@ jobs:
 
     - name: 
       run: |
-        .\vs_buildtools.exe --quiet --wait --norestart --nocache ^
-        --installPath C:\BuildTools ^
-        --add Microsoft.VisualStudio.Workload.VCTools ^
+        .\vs_buildtools.exe --quiet --wait --norestart --nocache \
+        --installPath C:\BuildTools \
+        --add Microsoft.VisualStudio.Workload.VCTools \
         --includeRecommended
+      shell: cmd
     - name: 
       uses: actions/upload-artifact@v4
       with: 
