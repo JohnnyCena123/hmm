@@ -18,6 +18,7 @@ jobs:
         .\vs_buildtools.exe --quiet --wait --norestart --nocache ^
         --installPath C:\BuildTools ^
         --add Microsoft.VisualStudio.Workload.VCTools ^
+        --add Microsoft.VisualStudio.Component.Windows10SDK.22621 ^
         --includeRecommended
         IF %ERRORLEVEL% EQU 3010 EXIT 0
       shell: cmd
