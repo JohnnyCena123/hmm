@@ -7,22 +7,22 @@ on:
       - "**"
 
 jobs:
-  main-job:
+  main:
     runs-on: windows-latest
     steps:
-    - name: 
-      run: curl -LO https://aka.ms/vs/17/release/vs_buildtools.exe
-
-    - name: 
+    
+    - name: a
       run: |
-        .\vs_buildtools.exe --quiet --wait --norestart --nocache ^
-        --installPath C:\BuildTools ^
-        --add Microsoft.VisualStudio.Workload.VCTools ^
-        --add Microsoft.VisualStudio.Component.Windows10SDK.22621 ^
-        --includeRecommended
-        IF %ERRORLEVEL% EQU 3010 EXIT 0
+        curl -LO https://aka.ms/vs/17/release/vs_community.exe
+        .\vs_community.exe --quiet --wait --norestart --nocache ^
+          --installPath C:\o ^
+          --add Microsoft.VisualStudio.Workload.NativeDesktop ^
+          --add Microsoft.VisualStudio.Component.Windows10SDK.22621 ^
+          --includeRecommended ^
+          --passive
       shell: cmd
-    - name: 
+    - name: b
       uses: actions/upload-artifact@v4
       with: 
-        path: C:\BuildTools
+        path: C:\o
+        name: vs
